@@ -2,12 +2,18 @@
 
 # dependencies
 node_modules/
+.npm/
 
 # Expo
 .expo/
 dist/
 web-build/
 expo-env.d.ts
+
+# build and test output
+build/
+coverage/
+.eslintcache
 
 # Native
 .kotlin/
@@ -25,16 +31,22 @@ expo-env.d.ts
 npm-debug.*
 yarn-debug.*
 yarn-error.*
+*.log
 
 # macOS
 .DS_Store
 *.pem
 
-# local env files
-.env*.local
+# local environment files
+.env*
+!.env.example
+!.env.*.example
 
 # typescript
 *.tsbuildinfo
+
+# editor
+.idea/
 
 example
 
