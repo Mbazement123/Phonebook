@@ -6,13 +6,13 @@ import {
   Platform,
   Pressable,
   ScrollView,
-  StyleSheet,
   Text,
   TextInput,
   View,
 } from 'react-native';
 import { SafeAreaView } from 'react-native-safe-area-context';
 import { useAppTheme } from '../hooks/use-app-theme';
+import { addContactModalStyles as styles } from '../style/main';
 
 export type NewContact = {
   name: string;
@@ -213,95 +213,3 @@ export default function AddContactModal({
     </NativeModal>
   );
 }
-
-const styles = StyleSheet.create({
-  modalContainer: {
-    backgroundColor: '#FFFFFF',
-    flex: 1,
-  },
-  modalSafeArea: {
-    backgroundColor: '#FFFFFF',
-    flex: 1,
-  },
-  modalCard: {
-    backgroundColor: '#FFFFFF',
-    flex: 1,
-    paddingHorizontal: 24,
-    paddingTop: 24,
-    paddingBottom: 12,
-  },
-  modalHeader: {
-    alignItems: 'center',
-    flexDirection: 'row',
-    justifyContent: 'space-between',
-    marginBottom: 24,
-  },
-  modalTitle: {
-    fontSize: 24,
-    fontWeight: '700',
-  },
-  modalSubtitle: {
-    fontSize: 14,
-    marginTop: 5,
-  },
-  closeButton: {
-    alignItems: 'center',
-    backgroundColor: '#F1F4F2',
-    borderRadius: 18,
-    height: 36,
-    justifyContent: 'center',
-    width: 36,
-  },
-  fieldLabel: {
-    fontSize: 14,
-    fontWeight: '600',
-    marginBottom: 8,
-  },
-  input: {
-    backgroundColor: '#F7F9F8',
-    borderColor: '#E4EAE6',
-    borderRadius: 12,
-    borderWidth: 1,
-    fontSize: 16,
-    height: 52,
-    marginBottom: 18,
-    paddingHorizontal: 15,
-  },
-  formError: {
-    fontSize: 13,
-    marginBottom: 16,
-  },
-  modalActions: {
-    flexDirection: 'row',
-    gap: 12,
-    marginTop: 4,
-  },
-  cancelButton: {
-    alignItems: 'center',
-    backgroundColor: '#F1F4F2',
-    borderRadius: 13,
-    flex: 1,
-    justifyContent: 'center',
-    minHeight: 52,
-  },
-  secondaryButtonPressed: {
-    opacity: 0.75,
-  },
-  cancelButtonText: {
-    fontSize: 15,
-    fontWeight: '600',
-  },
-  saveButton: {
-    alignItems: 'center',
-    backgroundColor: '#1D4ED8',
-    borderRadius: 13,
-    flex: 1.4,
-    justifyContent: 'center',
-    minHeight: 52,
-  },
-  saveButtonText: {
-    color: '#FFFFFF',
-    fontSize: 15,
-    fontWeight: '700',
-  },
-});

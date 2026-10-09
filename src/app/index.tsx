@@ -14,7 +14,6 @@ import {
   FlatList,
   Platform,
   Pressable,
-  StyleSheet,
   Text,
   View,
 } from 'react-native';
@@ -31,8 +30,8 @@ import {
 } from '../data/contacts-database';
 import { searchContacts } from '../data/search-contacts';
 import { useAppTheme } from '../hooks/use-app-theme';
+import { contactsScreenStyles as styles, getContactAvatarColors } from '../style/main';
 import { useContactsStore } from '../store/contacts-store';
-import { getContactAvatarColors } from '../utils/contact-avatar';
 
 type Contact = StoredContact;
 
@@ -329,33 +328,6 @@ export default function ContactsScreen() {
       </View>
     );
   };
-  //  ({ item }: { item: Contact }) => (
-  //   <View style={styles.contactItem}>
-  //     {/* Initial Circle */}
-  //     <View
-  //       style={[
-  //         styles.avatar,
-  //         {
-  //           backgroundColor: item.color,
-  //         },
-  //       ]}
-  //     >
-  //       <Text style={styles.avatarText}>{item.initial}</Text>
-  //     </View>
-
-  //     {/* Contact Information */}
-  //     <View style={styles.contactInfo}>
-  //       <Text style={styles.contactName}>{item.name}</Text>
-
-  //       <Text style={styles.contactJob}>{item.job}</Text>
-  //     </View>
-
-  //     {/* Phone Button */}
-  //     <TouchableOpacity style={styles.callButton}>
-  //       <Ionicons name="call-outline" size={21} color="#53666F" />
-  //     </TouchableOpacity>
-  //   </View>
-  // );
   return (
     <SafeAreaView
       edges={['left', 'right', 'bottom']}
@@ -472,131 +444,3 @@ export default function ContactsScreen() {
     </SafeAreaView>
   );
 }
-
-const styles = StyleSheet.create({
-  container: {
-    flex: 1,
-    backgroundColor: '#FFFFFF',
-  },
-  emptyState: {
-    alignItems: 'center',
-    flex: 1,
-    justifyContent: 'center',
-    paddingHorizontal: 36,
-    paddingBottom: 80,
-  },
-  emptyIcon: {
-    alignItems: 'center',
-    backgroundColor: '#EAF3FF',
-    borderRadius: 32,
-    height: 64,
-    justifyContent: 'center',
-    width: 64,
-  },
-  emptyTitle: {
-    color: '#17231D',
-    fontSize: 18,
-    fontWeight: '600',
-    marginTop: 18,
-  },
-  emptyMessage: {
-    color: '#77837C',
-    fontSize: 14,
-    lineHeight: 21,
-    marginTop: 8,
-    textAlign: 'center',
-  },
-  retryButton: {
-    alignItems: 'center',
-    backgroundColor: '#1D4ED8',
-    borderRadius: 12,
-    marginTop: 20,
-    paddingHorizontal: 20,
-    paddingVertical: 12,
-  },
-  retryButtonText: {
-    color: '#FFFFFF',
-    fontSize: 14,
-    fontWeight: '600',
-  },
-  contactList: {
-    paddingHorizontal: 20,
-    paddingBottom: 120,
-  },
-  contactCard: {
-    alignItems: 'center',
-    borderBottomColor: '#EEF1EF',
-    borderBottomWidth: StyleSheet.hairlineWidth,
-    flexDirection: 'row',
-    paddingVertical: 14,
-  },
-  contactInfo: {
-    alignItems: 'center',
-    flex: 1,
-    flexDirection: 'row',
-  },
-  contactCardPressed: {
-    opacity: 0.7,
-  },
-  callButton: {
-    alignItems: 'center',
-    borderRadius: 20,
-    height: 40,
-    justifyContent: 'center',
-    marginLeft: 10,
-    width: 40,
-  },
-  avatar: {
-    alignItems: 'center',
-    backgroundColor: '#EAF3FF',
-    borderRadius: 25,
-    height: 50,
-    justifyContent: 'center',
-    marginRight: 14,
-    width: 50,
-  },
-  avatarText: {
-    color: '#1D6FD6',
-    fontSize: 18,
-    fontWeight: '600',
-  },
-  contactDetails: {
-    flex: 1,
-  },
-  contactName: {
-    color: '#17231D',
-    fontSize: 16,
-    fontWeight: '600',
-  },
-  contactPhone: {
-    color: '#52615A',
-    fontSize: 14,
-    marginTop: 4,
-  },
-  contactEmail: {
-    color: '#77837C',
-    fontSize: 13,
-    marginTop: 2,
-  },
-  fab: {
-    alignItems: 'center',
-    backgroundColor: '#EFF2F0',
-    borderRadius: 35,
-    bottom: 32,
-    elevation: 6,
-    height: 70,
-    justifyContent: 'center',
-    position: 'absolute',
-    right: 20,
-    shadowColor: '#000',
-    shadowOffset: { width: 0, height: 4 },
-    shadowOpacity: 0.3,
-    shadowRadius: 4.5,
-    width: 70,
-  },
-  fabOnPress: {
-    height: 56,
-    width: 56,
-    borderRadius: 28,
-  },
-});

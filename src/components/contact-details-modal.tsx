@@ -2,12 +2,14 @@ import { Ionicons } from '@expo/vector-icons';
 import {
   Modal,
   Pressable,
-  StyleSheet,
   Text,
   View,
 } from 'react-native';
 import { useAppTheme } from '../hooks/use-app-theme';
-import { getContactAvatarColors } from '../utils/contact-avatar';
+import {
+  contactDetailsModalStyles as styles,
+  getContactAvatarColors,
+} from '../style/main';
 
 type ContactDetailsModalProps = {
   contactId: string;
@@ -46,7 +48,7 @@ export default function ContactDetailsModal({
         <Pressable
           accessibilityLabel="Close contact details"
           onPress={onClose}
-          style={StyleSheet.absoluteFill}
+          style={styles.overlayPressable}
         />
         <View
           accessibilityViewIsModal
@@ -148,79 +150,3 @@ function ActionButton({
     </Pressable>
   );
 }
-
-const styles = StyleSheet.create({
-  overlay: {
-    alignItems: 'center',
-    backgroundColor: 'rgba(0, 0, 0, 0.48)',
-    flex: 1,
-    justifyContent: 'center',
-    paddingHorizontal: 24,
-  },
-  card: {
-    borderRadius: 20,
-    borderWidth: StyleSheet.hairlineWidth,
-    maxWidth: 420,
-    padding: 20,
-    width: '100%',
-  },
-  heading: {
-    alignItems: 'center',
-    flexDirection: 'row',
-  },
-  avatar: {
-    alignItems: 'center',
-    borderRadius: 25,
-    height: 50,
-    justifyContent: 'center',
-    marginRight: 14,
-    width: 50,
-  },
-  avatarText: {
-    fontSize: 20,
-    fontWeight: '700',
-  },
-  contactInfo: {
-    flex: 1,
-    minWidth: 0,
-  },
-  name: {
-    fontSize: 18,
-    fontWeight: '700',
-  },
-  phone: {
-    fontSize: 14,
-    marginTop: 4,
-  },
-  closeButton: {
-    alignItems: 'center',
-    height: 32,
-    justifyContent: 'center',
-    marginLeft: 8,
-    width: 32,
-  },
-  divider: {
-    height: StyleSheet.hairlineWidth,
-    marginVertical: 18,
-  },
-  actions: {
-    flexDirection: 'row',
-    gap: 10,
-  },
-  actionButton: {
-    alignItems: 'center',
-    borderRadius: 14,
-    flex: 1,
-    gap: 7,
-    justifyContent: 'center',
-    minHeight: 68,
-    paddingVertical: 10,
-  },
-  actionPressed: {
-    opacity: 0.7,
-  },
-  actionLabel: {
-    fontSize: 12,
-    fontWeight: '600',
-  },
-});

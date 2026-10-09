@@ -3,7 +3,6 @@ import { useState } from 'react';
 import {
   Platform,
   Pressable,
-  StyleSheet,
   Text,
   View,
 } from 'react-native';
@@ -11,6 +10,7 @@ import { useSafeAreaInsets } from 'react-native-safe-area-context';
 import type { StoredContact } from '../data/contacts-database';
 import { searchContacts } from '../data/search-contacts';
 import { useAppTheme } from '../hooks/use-app-theme';
+import { contactsHeaderStyles as styles, white } from '../style/main';
 import { useContactsStore } from '../store/contacts-store';
 import SearchContactsModal from './search-contacts-modal';
 
@@ -76,7 +76,7 @@ export default function ContactsHeader() {
               <Ionicons
                 name={isImportingContacts ? 'hourglass-outline' : 'download-outline'}
                 size={19}
-                color="#FFFFFF"
+                color={white}
               />
               <Text style={styles.importButtonText}>
                 {isImportingContacts ? 'Importing' : 'Import'}
@@ -109,66 +109,3 @@ export default function ContactsHeader() {
     </View>
   );
 }
-
-const styles = StyleSheet.create({
-  container: {
-    backgroundColor: '#FFFFFF',
-    paddingHorizontal: 20,
-    paddingTop: 16,
-    paddingBottom: 14,
-  },
-  titleRow: {
-    alignItems: 'center',
-    flexDirection: 'row',
-    justifyContent: 'space-between',
-    gap: 12,
-  },
-  headerActions: {
-    alignItems: 'center',
-    flexDirection: 'row',
-    flexShrink: 0,
-    gap: 10,
-  },
-  titleBlock: {
-    flex: 1,
-    minWidth: 0,
-  },
-  title: {
-    fontSize: 24,
-    fontWeight: '700',
-  },
-  subtitle: {
-    fontSize: 14,
-    marginTop: 5,
-  },
-  importButton: {
-    alignItems: 'center',
-    backgroundColor: '#1D4ED8',
-    borderRadius: 12,
-    flexDirection: 'row',
-    gap: 6,
-    minHeight: 42,
-    paddingHorizontal: 12,
-  },
-  importButtonPressed: {
-    opacity: 0.75,
-  },
-  importButtonDisabled: {
-    opacity: 0.6,
-  },
-  importButtonText: {
-    color: '#FFFFFF',
-    fontSize: 14,
-    fontWeight: '600',
-  },
-  iconButton: {
-    alignItems: 'center',
-    borderRadius: 12,
-    height: 42,
-    justifyContent: 'center',
-    width: 42,
-  },
-  actionPressed: {
-    opacity: 0.75,
-  },
-});
