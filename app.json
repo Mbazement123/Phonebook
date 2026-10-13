@@ -37,14 +37,19 @@
             "image": "@assets/images/phonebookLogo-dark.png"
           }
         }
-      ]
+      ],
+      "expo-sqlite"
     ],
     "experiments": {
       "typedRoutes": true,
       "reactCompiler": true
     },
     "extra": {
-      "router": {}
-    }
+      "router": {},
+      "eas": {
+        "projectId": "a6cb25d9-b8c0-42f7-91af-ae02945badfc"
+      }
+    },
+    "owner": "mbazement123s-team"
   }
 }
